@@ -1,0 +1,10 @@
+export const RPC_ENDPOINT = "";
+export const RPC_WEBSOCKET_ENDPOINT = "";
+export const JUP_AGGREGATOR = process.env.JUP_AGGREGATOR;
+export const TARGET_WALLET = process.env.TARGET_WALLET;
+export const PRICE_KEY = "";
+export const MAXIMUM_BUY_AMOUNT = process.env.MAXIMUM_BUY_AMOUNT;
+// JUP_AGGREGATOR=JUP6LkbZbjS1jKKwapdHNy74zcZ3tLUZoi5QNyVTaV4
+// PRIVATE_KEY=
+// TARGET_WALLET=
+// MAXIMUM_BUY_AMOUNT=0.8

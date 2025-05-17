@@ -14,7 +14,7 @@ import {
 } from "@solana/wallet-adapter-wallets";
 import { clusterApiUrl } from "@solana/web3.js";
 import { SessionProvider } from "next-auth/react";
-import React, { useMemo, useState } from "react";
+import React, { useMemo, useState, useEffect } from "react";
 
 export default function ContextProvider({
   children,
@@ -39,9 +39,25 @@ export default function ContextProvider({
     [],
   );
 
+  // Ensure wallet connection is maintained across page loads
+  const [autoConnect, setAutoConnect] = useState(true);
+  
+  useEffect(() => {
+    // Always try to auto-connect for Solana wallets
+    localStorage.setItem('autoConnectWallet', 'true');
+    setAutoConnect(true);
+  }, []);
+
   return (
     <ConnectionProvider endpoint={endpoint}>
-      <WalletProvider wallets={wallets} autoConnect>
+      <WalletProvider 
+        wallets={wallets} 
+        autoConnect={autoConnect}
+        localStorageKey="walletAdapter"
+        onError={(error) => {
+          console.error('Wallet error:', error);
+        }}
+      >
         <SessionProvider>
           <div vaul-drawer-wrapper="true">{children}</div>
         </SessionProvider>
