@@ -1,20 +1,50 @@
-# SolanAuth
+````markdown
+# AXYZ
 
-Responsive Solana wallet authentication and account modal with NextAuth integration and shadcn/ui.
+AXYZ is a modular crypto trading platform built with Next.js and TypeScript. It empowers users to:
 
-![Demo](https://utfs.io/f/iUT8pU3lhYNeUFLejntTYAjtNyo932GcDLE6wsqCp1SiOdV0)
-![Demo](https://utfs.io/f/iUT8pU3lhYNex4mm8AdiEhYl0WAMNZDmJvKROFpnC7jkX3ey)
-![Demo](https://utfs.io/f/iUT8pU3lhYNeNPayHqf7d6VTx3LtcmvI9Ou5MAbowSehE48G)
-![Demo](https://utfs.io/f/iUT8pU3lhYNe7T1pL32byJWLu96lvM0K83UHcwROYg2pE4s7)
-![Demo](https://utfs.io/f/iUT8pU3lhYNeHu37GZMbKWT7mu95xt8Rqe6C3ScAF1gyIdOi)
+- Create unlimited wallets
+- Copy trade from any wallet
+- Manage portfolios with clean UX and scalable infrastructure
 
-## Credits
+> _"Minimal friction. Maximum flexibility."_
 
-- [shadcn/ui](https://github.com/shadcn-ui/ui) by [shadcn](https://github.com/shadcn)
-- [Vaul](https://github.com/emilkowalski/vaul) by [emilkowalski](https://github.com/emilkowalski)
-- [Credenza](https://github.com/redpangilinan/credenza) by [redpangilinan](https://github.com/redpangilinan)
-- [Solana Wallet Adapter](https://github.com/anza-xyz/wallet-adapter) by [anza-xyz](https://github.com/anza-xyz/)
+---
 
-## Inspiration
+## 🚀 Features
 
-- [SimpleKit](https://github.com/vaunblu/SimpleKit) by [vaunblu](https://github.com/vaunblu)
+- **Unlimited Wallets**: Spin up as many wallets as you need, without limits.
+- **Copy Trading**: Mirror strategies from any public or bookmarked wallet in one click.
+- **Secure & Scalable**: Built on Solana and Metaplex foundations for speed and reliability.
+- **Future Custom DEX Module**: Dedicated on-chain smart-contract-driven swap functionality tailored for AXYZ.
+
+
+## 📂 Project Structure
+
+```bash
+├── app                    # Next.js application
+│   ├── dashboard          # User dashboard and wallet management
+│   ├── home               # Landing page and market overview
+│   ├── generate           # Keypair & wallet generation UI
+│   ├── top-traders        # Discovery of popular wallets
+│   └── settings           # User preferences & account settings
+├── components            # Reusable UI components & dialogs
+├── lib                   # Core utilities: auth, API clients, token handlers
+├── hooks                 # Custom React hooks for wallet & UI logic
+├── config                # Environment & NextAuth configuration
+├── utils                 # Shared helper functions
+├── public                # Static assets (fonts, icons, logos)
+├── next.config.mjs        # Next.js configuration
+└── README.md             # Project documentation (you are here)
+````
+
+## 🔮 Roadmap
+
+AXYZ is only scratching the surface. On deck:
+
+* 🤖 AI Trading Agents**: Smart bots to automate and optimize your strategies.
+* 🏆 Top Trader Discovery**: Search & rank the best-performing wallets.
+* 🔧 Advanced Automation Tools**: Schedule trades, set alerts, simulate scenarios.
+* 📊 Analytics Dashboard**: Deep insights into performance, risk, and returns.
+* 🔀 Custom DEX Module**: Implement on-chain smart-contract-based swap capabilities bespoke to AXYZ, enabling optimized, trustless token swaps.
+ 
