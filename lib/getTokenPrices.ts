@@ -18,8 +18,7 @@ async function getTokenPrices(tokens: { mint: string; name: string; logoURI: str
             throw new Error('Invalid response from Jupiter API');
         }
 
-        // Map each token to its corresponding price and total value in USD
-        return tokens.map((token) => {
+         return tokens.map((token) => {
             const price = priceData[token.mint]?.price || 0; // Safely handle missing prices
             return {
                 ...token,

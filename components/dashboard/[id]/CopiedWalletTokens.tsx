@@ -17,6 +17,7 @@ interface CopiedWalletTokensProps {
   isLoading: boolean
   onRefresh: () => void
   onCopyToken: (token: TokenInfo) => void
+  formatUSD: (value: number) => string;
 }
 
 export function CopiedWalletTokens({
@@ -153,21 +154,21 @@ export function CopiedWalletTokens({
         {/* Sort Controls */}
         <div className="flex gap-2 mb-4">
           <Badge 
-            variant={sortBy === 'value' ? 'default' : 'outline'} 
+            variant={sortBy === 'value' ? 'default' : 'secondary'}
             className="cursor-pointer"
             onClick={() => handleSort('value')}
           >
             Value {sortBy === 'value' && (sortDirection === 'asc' ? '↑' : '↓')}
           </Badge>
           <Badge 
-            variant={sortBy === 'name' ? 'default' : 'outline'} 
+            variant={sortBy === 'name' ? 'default' : 'secondary'}
             className="cursor-pointer"
             onClick={() => handleSort('name')}
           >
             Name {sortBy === 'name' && (sortDirection === 'asc' ? '↑' : '↓')}
           </Badge>
           <Badge 
-            variant={sortBy === 'balance' ? 'default' : 'outline'} 
+            variant={sortBy === 'balance' ? 'default' : 'secondary'}
             className="cursor-pointer"
             onClick={() => handleSort('balance')}
           >

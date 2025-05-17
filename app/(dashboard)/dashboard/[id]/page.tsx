@@ -139,7 +139,7 @@ export default function WalletDashboardPage() {
         setTotalValue(result.totalValue);
         
         // Cache the token data for the keypair
-        localStorage.setItem(tokenCacheKey, JSON.stringify(enhancedTokens)); === 'boolean')
+        localStorage.setItem(tokenCacheKey, JSON.stringify(enhancedTokens));
         
       } catch (err) {
         console.error("Error fetching token data:", err);
@@ -350,66 +350,7 @@ export default function WalletDashboardPage() {
           {/* Right Column - Copy Wallet */}
           <div className="rounded-lg border bg-card p-4">
             <h2 className="text-lg font-semibold mb-4">Copy Trading</h2>
-            <Tabs defaultValue="overview">
-              <TabsList className="mb-4">
-                <TabsTrigger value="overview">Overview</TabsTrigger>
-                <TabsTrigger value="tokens">Tokens</TabsTrigger>
-                <TabsTrigger value="transactions">Transactions</TabsTrigger>
-                <TabsTrigger value="copy-trading">Copy Trading</TabsTrigger>
-              </TabsList>
-              
-              {isLoadingTxs ? (
-                <div className="flex justify-center py-8">
-                  <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
-                </div>
-              ) : transactions.length > 0 ? (
-                <div className="space-y-3">
-                  {transactions.map((tx) => (
-                    <div
-                      key={tx.signature}
-                      className="flex items-center justify-between p-2 rounded-lg hover:bg-accent/50 transition-colors"
-                    >
-                      <div className="flex items-center space-x-3">
-                        <div
-                          className={`flex h-8 w-8 items-center justify-center rounded-full ${tx.type === "receive" ? "bg-green-500/10" : "bg-red-500/10"}`}
-                        >
-                          {tx.type === "receive" ? (
-                            <ArrowDownLeft className="h-4 w-4 text-green-500" />
-                          ) : (
-                            <ArrowUpRight className="h-4 w-4 text-red-500" />
-                          )}
-                        </div>
-                        <div>
-                          <p className="font-medium">
-                            {tx.type === "receive" ? "Receive" : "Send"}{" "}
-                            <span className="text-xs text-muted-foreground">{tx.token}</span>
-                          </p>
-                          <p className="text-xs text-muted-foreground">{tx.date}</p>
-                        </div>
-                      </div>
-                      <div className="text-right">
-                        <p className={`font-medium ${tx.type === "receive" ? "text-green-500" : ""}`}>
-                          {tx.type === "receive" ? "+" : ""}
-                          {tx.amount.toFixed(4)} {tx.token}
-                        </p>
-                        <div className="flex items-center justify-end space-x-2">
-                          <p className="text-xs text-muted-foreground">confirmed</p>
-                          <ExternalLink
-                            className="h-3 w-3 text-muted-foreground cursor-pointer hover:text-foreground"
-                            onClick={() => window.open(`https://solscan.io/tx/${tx.txId}`, "_blank")}
-                          />
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              ) : (
-                <div className="text-center py-8 text-muted-foreground">
-                  <p>No transactions found for this wallet</p>
-                  <p className="text-sm mt-2">Transactions will appear here once you send or receive tokens</p>
-                </div>
-              )}
-            </div>
+            <CopyWallet keypairId={keypairPublicKey.toString()} initialWalletAddress={copiedWalletAddress} />
           </div>
         </div>
 

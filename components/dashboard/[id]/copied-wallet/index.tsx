@@ -432,4 +432,17 @@ export function CopyWallet({ keypairId, initialWalletAddress = "" }: CopyWalletP
                 disabled={!targetWallet || !isValidAddress}
                 className="w-full"
               >
-                <Save className="h-4
+                <Save className="h-4 w-4 mr-2" />
+                Save Wallet
+              </Button>
+            </div>
+          </TabsContent>
+
+          <TabsContent value="tokens" className="space-y-4 mt-4">
+            <CopyWalletTokens keypairId={keypairId} walletAddress={targetWallet} settings={settings} />
+          </TabsContent>
+        </Tabs>
+      </CardContent>
+    </Card>
+  );
+} 
