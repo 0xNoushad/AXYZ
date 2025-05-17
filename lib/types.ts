@@ -37,6 +37,8 @@ export interface SolAsset {
   usdValue: number;
 }
 
+
+
 /**
  * Converts a TokenInfo object to a SolAsset object
  * @param token TokenInfo object to convert
@@ -89,3 +91,61 @@ export function convertTokensToSolAssets(tokens: TokenInfo[]): SolAsset[] {
   }
   return tokens.map(convertToSolAsset);
 }
+
+
+// lib/types.ts
+
+/**
+ * Interface for Bot Settings.
+ */
+export interface BotSettings {
+  maximumBuyAmount: number; // Max amount to spend per trade (e.g., in SOL)
+  minimumBuyAmount: number; // Min amount to spend per trade (e.g., in SOL)
+  slippageBps: number; // Slippage tolerance in basis points (e.g., 50 for 0.5%)
+  targetWallet?: string; // Add targetWallet to settings interface
+  // Add other settings like tokens to ignore, etc.
+}
+
+/**
+ * Default settings for the bot.
+ */
+export const DEFAULT_SETTINGS: BotSettings = {
+  maximumBuyAmount: 0.5, // Example default
+  minimumBuyAmount: 0.01, // Example default
+  slippageBps: 50, // 0.5% slippage
+  targetWallet: "", // Default empty
+};
+
+// Add other shared types here if needed
+
+// Example placeholder for SolAsset if it's not defined elsewhere
+// interface SolAsset {
+//   name: string;
+//   symbol: string;
+//   mint: PublicKey;
+//   amount: number;
+//   decimals: number;
+//   logoURI?: string;
+//   tokenAccount?: string;
+//   programId?: string;
+//   balance: number;
+//   usdValue: number;
+//   price?: number;
+//   totalValueInUSD?: number;
+// }
+
+// Example placeholder for TokenInfo if it's not defined elsewhere
+// interface TokenInfo {
+//   mint: PublicKey;
+//   amount: number;
+//   decimals: number;
+//   name: string;
+//   symbol: string;
+//   logoURI?: string;
+//   tokenAccount?: string;
+//   programId?: string;
+//   balance: number;
+//   usdValue: number;
+//   price?: number;
+//   totalValueInUSD?: number;
+// }
